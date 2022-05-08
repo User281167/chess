@@ -1,17 +1,5 @@
-from abc import ABC, abstractmethod
 import tkinter as tk
 from functools import partial
-
-
-class Piece(ABC):
-    @abstractmethod
-    def move():
-        pass
-
-
-class Pawn(Piece):
-    def __init__(self, is_black=False):
-        pass
 
 
 class Chess():
@@ -23,10 +11,7 @@ class Chess():
             self.__board.append(list())
 
             for j in range(8):
-                color = "#784839"
-
-                if (i + j) % 2 != 0:
-                    color = "#5D3231"
+                color = "#784839" if ((i + j) % 2 != 0) else "#5D3231"
 
                 btn = tk.Button(self.__frame, bg=color, activebackground=color,
                                 width=8, height=4, command=partial(self.click, i, j))
