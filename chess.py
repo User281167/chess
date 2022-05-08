@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import tkinter as tk
+from functools import partial
 
 
 class Piece(ABC):
@@ -27,13 +28,12 @@ class Chess():
                 if (i + j) % 2 != 0:
                     color = "#5D3231"
 
-                label = tk.Label(self.__frame, bg=color,
-                                 width=8, height=4)
-                label.grid(row=i, column=j)
+                btn = tk.Button(self.__frame, bg=color, activebackground=color,
+                                width=8, height=4, command=partial(self.click, i, j))
 
-                label.bind("<Button-1>", lambda x: self.click(i, j))
+                btn.grid(row=i, column=j)
 
-                self.__board[i].append(label)
+                self.__board[i].append(btn)
 
         self.__frame.pack(expand=True, anchor="c", pady=20)
 
