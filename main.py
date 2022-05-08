@@ -1,4 +1,5 @@
 import tkinter as tk
+from chess import Chess
 
 
 class App(tk.Frame):
@@ -7,9 +8,11 @@ class App(tk.Frame):
         self.master = master
         self.master.title("Chess")
         self.master.geometry("600x600")
-        self.master.resizable(False, False)
-        self.master.configure(background="white")
+        #self.master.resizable(False, False)
+        self.master.configure(background="#373737")
         self.master.iconbitmap("icon.ico")
+
+        self.chess = Chess(master)
 
 
 if __name__ == "__main__":
