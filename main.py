@@ -8,7 +8,6 @@ class App(tk.Frame):
         self.master = master
         self.master.title("Chess")
         self.master.geometry("600x600")
-        #self.master.resizable(False, False)
         self.master.configure(background="#f2f2f2")
         self.master.iconbitmap("icon.ico")
 
